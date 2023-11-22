@@ -1,0 +1,65 @@
+body {
+    background-color: #177E89;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+}
+
+#inscription-container {
+    text-align: center;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #2B3A42;
+    margin-top: 50px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid white;
+    border-radius: 4px;
+    background-color: #177E89;
+    color: white;
+}
+
+.form-group input::placeholder {
+    color: #A0A0A0;
+}
+
+.button {
+    background-color: #D62828;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.button2 {
+    background-color: green;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #801E1E;
+}

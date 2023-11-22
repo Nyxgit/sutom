@@ -1,0 +1,25 @@
+# config/routes.yaml
+
+sutom_home:
+  path: /sutom/{id}
+  controller: App\Controller\SutomController::index
+
+sutom_inscription:
+  path: /inscription
+  controller: App\Controller\UserController::register
+
+sutom_connexion:
+  path: /
+  controller: App\Controller\UserController::login
+
+sutom_mois:
+  path: /mois/{id}
+  controller: App\Controller\MoisController::grille
+
+sutom_modif:
+  path: /modif
+  controller: 'App\Controller\ModifController::modif'
+
+make_guess:
+  path: /make-guess
+  controller: App\Controller\SutomController::makeGuess

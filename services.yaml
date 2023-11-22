@@ -1,0 +1,24 @@
+services:
+  App\Controller\SutomController:
+    public: true
+    arguments:
+      $params: "@parameter_bag"
+
+  App\Controller\UserController:
+    public: true
+    autowire: true
+    autoconfigure: true
+    arguments:
+      $entityManager: "@doctrine.orm.entity_manager"
+      $passwordEncoder: "@security.password_encoder"
+
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  App\:
+    resource: "../src/"
+    exclude:
+      - "../src/DependencyInjection/"
+      - "../src/Entity/"
+      - "../src/Kernel.php"

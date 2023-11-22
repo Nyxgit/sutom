@@ -1,0 +1,65 @@
+    body {
+        background-color: #177E89;
+        margin: 0; 
+        padding: 0;
+        display: flex;
+        justify-content: center; 
+        align-items: flex-start;
+
+    }
+
+    #game-container {
+        text-align: center;
+        color: white;
+    }
+    #icone {
+        position: absolute;
+        top: 10px; 
+        right: 10px;    
+     }
+    
+
+    #revealedWord,
+    #attempts {
+        margin-top: 20px;
+    }
+
+    #revealedWord span {
+        border: 1px solid black;
+        margin: 2px;
+        padding: 4px;
+    }
+
+    .attempt {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        width: auto; /* Ajuster la largeur en fonction du contenu */
+        background-color: #177E89;
+    }
+
+    .letter-box {
+        width: 40px;
+        height: 50px;
+        border:  solid white;
+        margin: 0;
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #177E89;
+    }
+
+    .letter {
+        font-size: 16px;
+        color: white; 
+    }
+
+    .correct {
+        background-color: red;
+    }
+
+    .present {
+        background-color: yellow;
+    }
+ 
