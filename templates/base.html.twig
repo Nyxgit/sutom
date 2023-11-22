@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Sutom
+			{% endblock %}
+		</title>
+		<link rel="icon" href="{{ asset('images/icone.png') }}" type="image/png"> {% block stylesheets %}{% endblock %}{% block javascripts %}{% endblock %}
+		</head>
+		<body>
+			{% block body %}{% endblock %}
+		</body>
+	</html>

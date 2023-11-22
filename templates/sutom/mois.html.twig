@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/grille.css') }}">
+
+	<div id="grille-container">
+		<h1>{{ currentMonth }}</h1>
+
+		<table class="table">
+			{% for row in rows %}
+				<tr>
+					{% for cell in row %}
+						<td onclick="document.location.href='http://localhost:8000/sutom/{{id}}?mot={{cell}}';">{{ cell }}</td>
+					{% endfor %}
+				</tr>
+			{% endfor %}
+		</table>
+
+	</div>
+{% endblock %}

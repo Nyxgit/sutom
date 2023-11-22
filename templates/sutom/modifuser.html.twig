@@ -1,0 +1,38 @@
+{# templates/user/modifuser.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<link rel="stylesheet" type="text/css" href="{{ asset('css/inscription.css') }}">
+
+<div id="inscription-container" style="position: relative;">
+
+	<a href="#" onclick="goBack()" style="position: absolute; top: 0; left: 0; padding: 10px; color: white;  text-decoration: none;">Retour</a>
+	<script>
+		function goBack() {
+window.history.back();
+}
+	</script>
+	<h2>Modification du profil</h2>
+
+	{{ form_start(form) }}
+
+	<div class="form-group">
+		{{ form_label(form.username) }}
+		{{ form_widget(form.username, { 'attr': {'placeholder': 'Nom d\'utilisateur'} }) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.password) }}
+            {{ form_widget(form.password, { 'attr': {'placeholder': 'Nouveau mot de passe'} }) }}
+        </div>
+
+
+	<button class="button2" type="submit" name="action" value="modifier">Modifier le profil</button>
+	<button class="button" type="submit" name="action" value="supprimer">Supprimer le profil</button>
+
+
+        {{ form_end(form) }}
+		</div>
+        
+	{% endblock %}

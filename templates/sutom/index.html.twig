@@ -1,0 +1,114 @@
+{# templates/sutom/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+
+{% endblock %}
+
+{% block body %}
+	<a href="{{ path('sutom_connexion') }}">
+		<img src="{{ asset('images/deco.png') }}" alt="User Icon" style="position: absolute; top: 10px; left: 10px; height: 30px;">
+	</a>
+	<div id="game-container">
+		<h1>Jeu de Motus</h1>
+		<div id="revealedWord"></div>
+		<div id="attempts"></div>
+	</div>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+
+var wordToGuess = "{{ wordToGuess }}";
+var usedLetters = [];
+var tries = 0;
+var guess;
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+var old = "{{ wordFromDatabase }}";
+console.log("old = " + old);
+
+if (old != '') {
+var wordToGuess = old;
+} else {
+var wordToGuess = "{{ wordToGuess }}";
+}
+
+var attemptsContainer = document.getElementById("attempts");
+
+for (var i = 0; i < 8; i++) {
+var attemptBox = document.createElement("div");
+attemptBox.setAttribute('id', 'line' + (
+i + 1
+));
+attemptBox.classList.add("attempt");
+
+for (var j = 0; j < wordToGuess.length; j++) {
+var letterBox = document.createElement("div");
+letterBox.classList.add("letter-box");
+attemptBox.appendChild(letterBox);
+}
+
+attemptsContainer.appendChild(attemptBox);
+}
+
+document.getElementById("guess").addEventListener("input", function () {
+var guessInput = this.value.toLowerCase();
+var currentAttemptBox = document.getElementById('line' + (
+tries + 1
+));
+var letterBoxes = currentAttemptBox.querySelectorAll('.letter-box');
+
+if (guessInput.length === wordToGuess.length && /[a-z]+/.test(guessInput)) {
+tries++;
+document.getElementById("guess").value = "";
+for (var i = 0; i < guessInput.length; i++) {
+var letterBox = letterBoxes[i];
+console.log(wordToGuess[i]);
+if (wordToGuess.indexOf(guessInput[i]) > -1) {
+if (wordToGuess[i] == guessInput[i]) {
+letterBox.innerHTML = '<span class="letter" style="color: greenyellow">' + guessInput[i] + '</span>';
+} else {
+letterBox.innerHTML = '<span class="letter" style="color: orange">' + guessInput[i] + '</span>';
+}
+} else {
+letterBox.innerHTML = '<span class="letter" style="color: red">' + guessInput[i] + '</span>';
+}
+}
+checkFinDeGame(guessInput);
+}
+});
+
+function checkFinDeGame(input) {
+if (input == wordToGuess) {
+alert("bien joué t'es smart ou quoi (coubeh)");
+finDeGame();
+} else {
+if (tries == 8) {
+alert("trop trop naze le gonz");
+finDeGame();
+}
+}
+
+}
+
+function finDeGame() {
+document.getElementById("guess").setAttribute("disabled", "true");
+}
+
+});
+	</script>
+	<div id="game-container">
+		<input type="text" id="guess" name="guess" pattern="[a-zA-Z]+" required>
+	</div>
+
+	<div id="icone">
+
+		<a href="{{ path('sutom_modif', {'id': id}) }}">
+			<img src="{{ asset('images/usericone.png') }}" alt="User Icon" class="button">
+		</a>
+	</div>
+{% endblock %}
